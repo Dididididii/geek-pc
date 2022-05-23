@@ -5,11 +5,11 @@ import logo from '@/assets/logo.png'
 import './index.scss'
 
 const Login = () => {
-  const { LoginStore } = useStore()
+  const { loginStore } = useStore()
   const navigate = useNavigate()
   const onFinish = async ({ mobile, code }) => {
     try {
-      await LoginStore.login({ mobile, code })
+      await loginStore.login({ mobile, code })
       navigate('/')
       message.success('登录成功', 1)
     } catch (error) {
@@ -27,7 +27,7 @@ const Login = () => {
         <Form
           onFinish={onFinish}
           initialValues={{
-            mobile: '13911111111',
+            mobile: '13811111111',
             code: '246810',
             remember: true,
           }}
